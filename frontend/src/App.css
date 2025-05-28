@@ -176,7 +176,6 @@ main {
   border-radius: var(--radius-2xl);
   overflow: hidden;
   position: relative;
-  group: true;
 }
 
 .feature-card::before {
@@ -246,7 +245,6 @@ main {
   border-radius: var(--radius-xl);
   position: relative;
   overflow: hidden;
-  group: true;
 }
 
 .service-card::before {
@@ -322,7 +320,6 @@ main {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   background: white;
   position: relative;
-  group: true;
 }
 
 .worker-card::before {
