@@ -1,7 +1,8 @@
 import axios from 'axios';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
-axios.defaults.baseURL = API_URL;
+// Remove baseURL since we're using Vite proxy
+// const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+// axios.defaults.baseURL = API_URL;
 
 export const workersAPI = {
   getAll: (params = {}) => axios.get('/api/workers', { params }),
@@ -23,6 +24,12 @@ export const bookingsAPI = {
   getById: (id) => axios.get(`/api/bookings/${id}`),
   cancel: (id) => axios.put(`/api/bookings/${id}/cancel`),
   rate: (id, data) => axios.put(`/api/bookings/${id}/rate`, data),
+};
+
+export const paymentsAPI = {
+  createCheckoutSession: (bookingId) => axios.post('/api/payments/create-checkout-session', { bookingId }),
+  handlePaymentSuccess: (sessionId, bookingId) => axios.post('/api/payments/success', { sessionId, bookingId }),
+  getPaymentStatus: (bookingId) => axios.get(`/api/payments/status/${bookingId}`)
 };
 
 export const authAPI = {

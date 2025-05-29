@@ -47,7 +47,7 @@ const Register = () => {
 
   const skillOptions = [
     'construction', 'electrician', 'plumber', 'carpenter', 
-    'gardener', 'painter', 'cleaner', 'handyman'
+    'gardener', 'painter', 'cleaner', 'geriatric care'
   ];
 
   useEffect(() => {
@@ -339,14 +339,14 @@ const Register = () => {
                     <Row>
                       <Col md={6}>
                         <Form.Group className="mb-3">
-                          <Form.Label>Hourly Rate ($)</Form.Label>
+                          <Form.Label>Hourly Rate (₹)</Form.Label>
                           <Form.Control
                             type="number"
                             name="hourlyRate"
                             value={workerFormData.hourlyRate}
                             onChange={handleWorkerChange}
-                            min={10}
-                            max={200}
+                            min={100}
+                            max={5000}
                             required
                           />
                         </Form.Group>

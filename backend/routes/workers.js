@@ -36,7 +36,7 @@ router.put('/profile', [
   body('name', 'Name is required').optional().notEmpty(),
   body('phone', 'Please provide a valid 10-digit phone number').optional().matches(/^\d{10}$/),
   body('skills', 'Skills must be an array').optional().isArray(),
-  body('hourlyRate', 'Hourly rate must be between $10 and $200').optional().isFloat({ min: 10, max: 200 }),
+  body('hourlyRate', 'Hourly rate must be between ₹100 and ₹5000').optional().isFloat({ min: 100, max: 5000 }),
   body('experience', 'Experience must be a non-negative number').optional().isFloat({ min: 0 })
 ], updateWorkerProfile);
 

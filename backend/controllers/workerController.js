@@ -222,7 +222,7 @@ const getSkills = async (req, res) => {
       'gardener',
       'painter',
       'cleaner',
-      'handyman'
+      'geriatric care'
     ];
     
     res.json(skills);

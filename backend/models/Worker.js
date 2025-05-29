@@ -30,7 +30,7 @@ const workerSchema = new mongoose.Schema({
   },
   skills: [{
     type: String,
-    enum: ['construction', 'electrician', 'plumber', 'carpenter', 'gardener', 'painter', 'cleaner', 'handyman'],
+    enum: ['construction', 'electrician', 'plumber', 'carpenter', 'gardener', 'painter', 'cleaner', 'geriatric care'],
     required: true
   }],
   location: {
@@ -50,8 +50,8 @@ const workerSchema = new mongoose.Schema({
   hourlyRate: {
     type: Number,
     required: [true, 'Please provide hourly rate'],
-    min: [10, 'Hourly rate must be at least $10'],
-    max: [200, 'Hourly rate cannot exceed $200']
+    min: [100, 'Hourly rate must be at least ₹100'],
+    max: [5000, 'Hourly rate cannot exceed ₹5000']
   },
   experience: {
     type: Number,

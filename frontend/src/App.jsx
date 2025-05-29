@@ -9,6 +9,7 @@ import WorkerDetail from './pages/WorkerDetail';
 import UserDashboard from './pages/UserDashboard';
 import WorkerDashboard from './pages/WorkerDashboard';
 import BookWorker from './pages/BookWorker';
+import PaymentSuccess from './pages/PaymentSuccess';
 import ProtectedRoute from './components/ProtectedRoute';
 import './App.css';
 
@@ -32,6 +33,11 @@ function App() {
             <Route path="/dashboard" element={
               <ProtectedRoute userType="user">
                 <UserDashboard />
+              </ProtectedRoute>
+            } />
+            <Route path="/payment/success" element={
+              <ProtectedRoute userType="user">
+                <PaymentSuccess />
               </ProtectedRoute>
             } />
             <Route path="/worker-dashboard" element={

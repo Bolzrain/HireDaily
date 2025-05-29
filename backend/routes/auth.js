@@ -32,10 +32,11 @@ router.post('/register-worker', [
   body('password', 'Password must be at least 6 characters').isLength({ min: 6 }),
   body('phone', 'Please provide a valid 10-digit phone number').matches(/^\d{10}$/),
   body('skills', 'At least one skill is required').isArray({ min: 1 }),
+  body('skills.*', 'Invalid skill selected').isIn(['construction', 'electrician', 'plumber', 'carpenter', 'gardener', 'painter', 'cleaner', 'geriatric care']),
   body('location.city', 'City is required').notEmpty(),
   body('location.state', 'State is required').notEmpty(),
   body('location.zipCode', 'Zip code is required').notEmpty(),
-  body('hourlyRate', 'Hourly rate must be between $10 and $200').isFloat({ min: 10, max: 200 }),
+  body('hourlyRate', 'Hourly rate must be between ₹100 and ₹5000').isFloat({ min: 100, max: 5000 }),
   body('experience', 'Experience must be a non-negative number').isFloat({ min: 0 })
 ], registerWorker);
 

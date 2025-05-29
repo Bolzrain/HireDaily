@@ -38,6 +38,9 @@ const createBooking = async (req, res) => {
       return res.status(400).json({ message: 'Worker does not have the required skill' });
     }
 
+    // Calculate total cost
+    const totalCost = worker.hourlyRate * estimatedHours;
+
     // Create booking
     const booking = await Booking.create({
       user: req.user._id,
@@ -48,6 +51,7 @@ const createBooking = async (req, res) => {
       scheduledTime,
       estimatedHours,
       hourlyRate: worker.hourlyRate,
+      totalCost: totalCost,
       address,
       notes
     });

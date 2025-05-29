@@ -19,7 +19,11 @@ const Navbar = () => {
     >
       <Container>
         <BootstrapNavbar.Brand as={Link} to="/" className="modern-brand">
-          <span className="brand-icon">🏗️</span>
+          <img 
+            src="/HireDaily_Logo.png" 
+            alt="HireDaily Logo" 
+            className="brand-icon-img"
+          />
           <span className="brand-text gradient-text">HireDaily</span>
         </BootstrapNavbar.Brand>
         
@@ -134,8 +138,9 @@ const Navbar = () => {
           text-decoration: none;
         }
         
-        .brand-icon {
-          font-size: 2.25rem;
+        .brand-icon-img {
+          width: 2.25rem;
+          height: auto;
           filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
           transition: all 0.3s ease;
           animation: brandFloat 3s ease-in-out infinite;
@@ -146,7 +151,7 @@ const Navbar = () => {
           50% { transform: translateY(-2px) rotate(2deg); }
         }
         
-        .modern-brand:hover .brand-icon {
+        .modern-brand:hover .brand-icon-img {
           transform: scale(1.1) rotate(10deg);
           filter: drop-shadow(0 6px 12px rgba(59, 130, 246, 0.3));
         }
@@ -402,8 +407,8 @@ const Navbar = () => {
             font-size: 1.5rem;
           }
           
-          .brand-icon {
-            font-size: 2rem;
+          .brand-icon-img {
+            width: 2rem;
           }
           
           .user-welcome {
@@ -433,8 +438,8 @@ const Navbar = () => {
             font-size: 1.25rem;
           }
           
-          .brand-icon {
-            font-size: 1.75rem;
+          .brand-icon-img {
+            width: 1.75rem;
           }
           
           .user-avatar {

@@ -13,7 +13,7 @@ const bookingSchema = new mongoose.Schema({
   },
   serviceType: {
     type: String,
-    enum: ['construction', 'electrician', 'plumber', 'carpenter', 'gardener', 'painter', 'cleaner', 'handyman'],
+    enum: ['construction', 'electrician', 'plumber', 'carpenter', 'gardener', 'painter', 'cleaner', 'geriatric care'],
     required: true
   },
   description: {

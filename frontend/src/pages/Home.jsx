@@ -179,7 +179,7 @@ const Home = () => {
               { icon: '🌱', title: 'Gardening', desc: 'Landscaping and maintenance', color: 'success', popular: true },
               { icon: '🎨', title: 'Painting', desc: 'Interior and exterior painting', color: 'danger', popular: false },
               { icon: '🧹', title: 'Cleaning', desc: 'Deep cleaning services', color: 'info', popular: false },
-              { icon: '🔨', title: 'Handyman', desc: 'General repair and maintenance', color: 'dark', popular: true },
+              { icon: '👵', title: 'Geriatric Care', desc: 'Elderly care and assistance', color: 'dark', popular: true },
             ].map((service, index) => (
               <Col md={3} sm={6} key={index} className="mb-4">
                 <Card className="service-card h-100 text-center animate-fade-in-up" style={{animationDelay: `${index * 0.1}s`}}>

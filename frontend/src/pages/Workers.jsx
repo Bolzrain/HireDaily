@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Container, Row, Col, Card, Form, Button, Badge, Spinner, Alert } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { workersAPI } from '../services/api';
@@ -17,15 +17,6 @@ const Workers = () => {
   });
   const [skills, setSkills] = useState([]);
 
-  useEffect(() => {
-    fetchSkills();
-    fetchWorkers();
-  }, []);
-
-  useEffect(() => {
-    fetchWorkers();
-  }, [filters]);
-
   const fetchSkills = async () => {
     try {
       const response = await workersAPI.getSkills();
@@ -35,7 +26,7 @@ const Workers = () => {
     }
   };
 
-  const fetchWorkers = async () => {
+  const fetchWorkers = useCallback(async () => {
     try {
       setLoading(true);
       const response = await workersAPI.getAll(filters);
@@ -46,7 +37,16 @@ const Workers = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [filters]);
+
+  useEffect(() => {
+    fetchSkills();
+    fetchWorkers();
+  }, [fetchWorkers]);
+
+  useEffect(() => {
+    fetchWorkers();
+  }, [fetchWorkers]);
 
   const handleFilterChange = (e) => {
     setFilters({
@@ -69,7 +69,7 @@ const Workers = () => {
     <div className="workers-page animate-fade-in">
       <Container className="py-4">
         {/* Header Section */}
-        <Row className="mb-5">
+        <Row className="mb-3">
           <Col>
             <div className="page-header animate-fade-in-up">
               <h1 className="display-5 fw-bold gradient-text">Find Workers</h1>
@@ -80,7 +80,7 @@ const Workers = () => {
         </Row>
 
         {/* Modern Filters */}
-        <Card className="filter-card mb-5 animate-fade-in-up">
+        <Card className="filter-card mb-6 animate-fade-in-up">
           <Card.Body className="p-4">
             <div className="filter-header mb-4">
               <h5 className="mb-0 d-flex align-items-center">
@@ -138,19 +138,19 @@ const Workers = () => {
                   name="minRate"
                   value={filters.minRate}
                   onChange={handleFilterChange}
-                  placeholder="$10"
+                  placeholder="₹100"
                 />
               </Form.Group>
             </Col>
             <Col md={2}>
-              <Form.Group className="mb-3">
+              <Form.Group className="mb-1">
                 <Form.Label>Max Rate</Form.Label>
                 <Form.Control
                   type="number"
                   name="maxRate"
                   value={filters.maxRate}
                   onChange={handleFilterChange}
-                  placeholder="$200"
+                  placeholder="₹5000"
                 />
               </Form.Group>
             </Col>
@@ -225,22 +225,35 @@ const Workers = () => {
                     </p>
                   )}
                   
-                  <div className="worker-footer d-flex justify-content-between align-items-center">
-                    <div className="rating-section">
+                  <div className="worker-footer">
+                    <div className="rating-section mb-3">
                       <span className="stars">{generateStars(worker.rating.average)}</span>
                       <small className="rating-count text-muted ms-1">
                         ({worker.rating.count})
                       </small>
                     </div>
-                    <Button 
-                      as={Link} 
-                      to={`/workers/${worker._id}`} 
-                      className="view-details-btn"
-                      size="sm"
-                    >
-                      <span className="btn-icon">👁️</span>
-                      View Details
-                    </Button>
+                    <div className="worker-actions d-flex gap-2">
+                      <Button 
+                        as={Link} 
+                        to={`/book/${worker._id}`} 
+                        variant="success"
+                        className="book-now-btn flex-fill"
+                        size="sm"
+                      >
+                        <span className="btn-icon">📅</span>
+                        Book Now
+                      </Button>
+                      <Button 
+                        as={Link} 
+                        to={`/workers/${worker._id}`} 
+                        variant="outline-primary"
+                        className="view-details-btn"
+                        size="sm"
+                      >
+                        <span className="btn-icon">👁️</span>
+                        View Details
+                      </Button>
+                    </div>
                   </div>
                 </Card.Body>
               </Card>
@@ -251,6 +264,10 @@ const Workers = () => {
       </Container>
 
       <style jsx>{`
+        .mb-6 {
+          margin-bottom: 8rem !important;
+        }
+        
         .workers-page {
           min-height: 100vh;
           background: linear-gradient(135deg, var(--gray-50) 0%, var(--primary-50) 100%);
@@ -431,6 +448,34 @@ const Workers = () => {
           box-shadow: var(--shadow-md);
           color: white;
           text-decoration: none;
+        }
+        
+        .book-now-btn {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.5rem;
+          background: linear-gradient(135deg, #059669, #047857);
+          border: none;
+          border-radius: var(--radius-md);
+          font-weight: 600;
+          padding: 0.5rem 1rem;
+          font-size: 0.875rem;
+          transition: all 0.2s ease;
+          text-decoration: none;
+          color: white;
+        }
+        
+        .book-now-btn:hover {
+          transform: translateY(-1px);
+          box-shadow: var(--shadow-md);
+          background: linear-gradient(135deg, #047857, #065f46);
+          color: white;
+          text-decoration: none;
+        }
+        
+        .worker-actions {
+          margin-top: auto;
         }
         
         .btn-icon {

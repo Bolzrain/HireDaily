@@ -18,7 +18,7 @@ router.post('/', [
   protect,
   userOnly,
   body('workerId', 'Worker ID is required').notEmpty(),
-  body('serviceType', 'Service type is required').isIn(['construction', 'electrician', 'plumber', 'carpenter', 'gardener', 'painter', 'cleaner', 'handyman']),
+  body('serviceType', 'Service type is required').isIn(['construction', 'electrician', 'plumber', 'carpenter', 'gardener', 'painter', 'cleaner', 'geriatric care']),
   body('description', 'Description is required').notEmpty(),
   body('scheduledDate', 'Scheduled date is required').isISO8601(),
   body('scheduledTime', 'Scheduled time is required').matches(/^([01]?[0-9]|2[0-3]):[0-5][0-9]$/),
