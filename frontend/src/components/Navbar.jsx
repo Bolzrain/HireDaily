@@ -13,14 +13,14 @@ const Navbar = () => {
 
   return (
     <BootstrapNavbar 
-      className="modern-navbar shadow-sm sticky-top"
+      className="modern-navbar shadow-sm"
       variant="light" 
       expand="lg"
     >
       <Container>
         <BootstrapNavbar.Brand as={Link} to="/" className="modern-brand">
           <img 
-            src="/HireDaily_Logo.png" 
+            src="/Logo.png" 
             alt="HireDaily Logo" 
             className="brand-icon-img"
           />
@@ -100,25 +100,14 @@ const Navbar = () => {
       
       <style jsx>{`
         .modern-navbar {
-          background: rgba(255, 255, 255, 0.95) !important;
-          backdrop-filter: blur(20px);
-          -webkit-backdrop-filter: blur(20px);
-          border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+          background-color: #ffffff !important;
+          background: #ffffff !important;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.1);
           padding: 1rem 0;
           transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
           position: relative;
           z-index: 1000;
-        }
-        
-        .modern-navbar::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
-          pointer-events: none;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         
         .modern-brand {

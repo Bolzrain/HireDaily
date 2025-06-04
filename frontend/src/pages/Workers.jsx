@@ -232,26 +232,16 @@ const Workers = () => {
                         ({worker.rating.count})
                       </small>
                     </div>
-                    <div className="worker-actions d-flex gap-2">
+                    <div className="worker-actions">
                       <Button 
                         as={Link} 
                         to={`/book/${worker._id}`} 
                         variant="success"
-                        className="book-now-btn flex-fill"
+                        className="book-now-btn w-100"
                         size="sm"
                       >
                         <span className="btn-icon">📅</span>
                         Book Now
-                      </Button>
-                      <Button 
-                        as={Link} 
-                        to={`/workers/${worker._id}`} 
-                        variant="outline-primary"
-                        className="view-details-btn"
-                        size="sm"
-                      >
-                        <span className="btn-icon">👁️</span>
-                        View Details
                       </Button>
                     </div>
                   </div>

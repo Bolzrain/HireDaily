@@ -5,11 +5,11 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Workers from './pages/Workers';
-import WorkerDetail from './pages/WorkerDetail';
 import UserDashboard from './pages/UserDashboard';
 import WorkerDashboard from './pages/WorkerDashboard';
 import BookWorker from './pages/BookWorker';
 import PaymentSuccess from './pages/PaymentSuccess';
+import RateWorker from './pages/RateWorker';
 import ProtectedRoute from './components/ProtectedRoute';
 import './App.css';
 
@@ -24,7 +24,6 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/workers" element={<Workers />} />
-            <Route path="/workers/:id" element={<WorkerDetail />} />
             <Route path="/book/:workerId" element={
               <ProtectedRoute userType="user">
                 <BookWorker />
@@ -43,6 +42,11 @@ function App() {
             <Route path="/worker-dashboard" element={
               <ProtectedRoute userType="worker">
                 <WorkerDashboard />
+              </ProtectedRoute>
+            } />
+            <Route path="/bookings/:id/rate" element={
+              <ProtectedRoute userType="user">
+                <RateWorker />
               </ProtectedRoute>
             } />
           </Routes>
