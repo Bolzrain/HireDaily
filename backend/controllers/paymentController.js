@@ -10,11 +10,15 @@ const createCheckoutSession = async (req, res) => {
     // Check for validation errors
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
+      console.log('Validation errors in payment:', errors.array());
       return res.status(400).json({ 
         message: 'Validation failed', 
         errors: errors.array() 
       });
     }
+
+    console.log('Creating payment session for user:', req.user._id);
+    console.log('Request body:', req.body);
     
     const { bookingId } = req.body;
 
@@ -24,6 +28,7 @@ const createCheckoutSession = async (req, res) => {
       user: req.user._id
     }).populate('worker', 'name');
 
+    console.log('Booking found:', booking ? 'Yes' : 'No');
     if (!booking) {
       return res.status(404).json({ message: 'Booking not found' });
     }
@@ -31,6 +36,12 @@ const createCheckoutSession = async (req, res) => {
     if (booking.paymentStatus === 'paid') {
       return res.status(400).json({ message: 'Booking already paid' });
     }
+
+    console.log('Creating Stripe session with:', {
+      amount: booking.totalCost * 100,
+      currency: 'inr',
+      serviceName: `${booking.serviceType} Service by ${booking.worker.name}`
+    });
 
     // Create Stripe checkout session
     const session = await stripe.checkout.sessions.create({
@@ -57,6 +68,7 @@ const createCheckoutSession = async (req, res) => {
       },
     });
 
+    console.log('Stripe session created successfully:', session.id);
     res.json({ sessionId: session.id, url: session.url });
   } catch (error) {
     console.error('Create checkout session error:', error);
