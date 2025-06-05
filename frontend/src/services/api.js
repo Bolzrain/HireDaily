@@ -1,8 +1,12 @@
 import axios from 'axios';
 
-// Remove baseURL since we're using Vite proxy
-// const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
-// axios.defaults.baseURL = API_URL;
+// Use environment variable for API URL, fallback to relative path for development
+const API_URL = import.meta.env.VITE_BACKEND_URL || '';
+
+// Set base URL for axios
+if (API_URL) {
+  axios.defaults.baseURL = API_URL;
+}
 
 export const workersAPI = {
   getAll: (params = {}) => axios.get('/api/workers', { params }),
