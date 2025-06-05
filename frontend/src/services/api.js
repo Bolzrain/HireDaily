@@ -3,10 +3,38 @@ import axios from 'axios';
 // Use environment variable for API URL, fallback to relative path for development
 const API_URL = import.meta.env.VITE_BACKEND_URL || '';
 
+// Debug logging
+console.log('API_URL:', API_URL);
+console.log('Environment:', import.meta.env);
+
 // Set base URL for axios
 if (API_URL) {
   axios.defaults.baseURL = API_URL;
 }
+
+// Add request interceptor for debugging
+axios.interceptors.request.use(
+  (config) => {
+    console.log('Making request to:', config.baseURL + config.url);
+    return config;
+  },
+  (error) => {
+    console.error('Request error:', error);
+    return Promise.reject(error);
+  }
+);
+
+// Add response interceptor for debugging
+axios.interceptors.response.use(
+  (response) => {
+    console.log('Response received:', response.status, response.config.url);
+    return response;
+  },
+  (error) => {
+    console.error('Response error:', error.response?.status, error.response?.data, error.config?.url);
+    return Promise.reject(error);
+  }
+);
 
 export const workersAPI = {
   getAll: (params = {}) => axios.get('/api/workers', { params }),
