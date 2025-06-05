@@ -252,4 +252,4 @@ This project is licensed under the MIT License.
 
 ## Support
 
-For support, email support@hiredaily.com or create an issue in the GitHub repository. 
+For support, email sudipta8534@gmail.com or create an issue in the GitHub repository. 
