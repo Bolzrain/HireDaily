@@ -88,7 +88,7 @@ const Home = () => {
       </section>
 
       {/* Enhanced Features Section */}
-      <section className="section-padding bg-light">
+      <section className="section-padding" style={{background: 'linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)'}}>
         <Container>
           <Row className="text-center mb-5">
             <Col>
@@ -100,12 +100,12 @@ const Home = () => {
           
           <Row className="g-4">
             <Col md={4}>
-              <Card className="feature-card h-100 text-center animate-fade-in-up">
+              <Card className="feature-card h-100 text-center animate-fade-in-up" style={{border: 'none', borderRadius: '20px', padding: '2rem', minHeight: '350px'}}>
                 <Card.Body>
                   <div className="feature-step">1</div>
-                  <div className="feature-icon">🔍</div>
-                  <Card.Title className="h4 mb-3">Search Workers</Card.Title>
-                  <Card.Text className="text-muted">
+                  <div className="feature-icon" style={{fontSize: '4rem', marginBottom: '1.5rem', marginTop: '1.5rem'}}>🔍</div>
+                  <Card.Title className="h4 mb-3" style={{fontWeight: '700', color: '#1f2937'}}>Search Workers</Card.Title>
+                  <Card.Text className="text-muted mb-4" style={{fontSize: '0.95rem', lineHeight: '1.6'}}>
                     Browse through our verified workers by skill, location, and rating. 
                     Use filters to find the perfect match for your needs.
                   </Card.Text>
@@ -119,12 +119,12 @@ const Home = () => {
             </Col>
             
             <Col md={4}>
-              <Card className="feature-card h-100 text-center animate-fade-in-up" style={{animationDelay: '0.1s'}}>
+              <Card className="feature-card h-100 text-center animate-fade-in-up" style={{animationDelay: '0.1s', border: 'none', borderRadius: '20px', padding: '2rem', minHeight: '350px'}}>
                 <Card.Body>
                   <div className="feature-step">2</div>
-                  <div className="feature-icon">📅</div>
-                  <Card.Title className="h4 mb-3">Book Service</Card.Title>
-                  <Card.Text className="text-muted">
+                  <div className="feature-icon" style={{fontSize: '4rem', marginBottom: '1.5rem', marginTop: '1.5rem'}}>📅</div>
+                  <Card.Title className="h4 mb-3" style={{fontWeight: '700', color: '#1f2937'}}>Book Service</Card.Title>
+                  <Card.Text className="text-muted mb-4" style={{fontSize: '0.95rem', lineHeight: '1.6'}}>
                     Schedule your service with detailed requirements and preferred timing. 
                     Get instant confirmation and worker contact details.
                   </Card.Text>
@@ -138,12 +138,12 @@ const Home = () => {
             </Col>
             
             <Col md={4}>
-              <Card className="feature-card h-100 text-center animate-fade-in-up" style={{animationDelay: '0.2s'}}>
+              <Card className="feature-card h-100 text-center animate-fade-in-up" style={{animationDelay: '0.2s', border: 'none', borderRadius: '20px', padding: '2rem', minHeight: '350px'}}>
                 <Card.Body>
                   <div className="feature-step">3</div>
-                  <div className="feature-icon">✅</div>
-                  <Card.Title className="h4 mb-3">Get Work Done</Card.Title>
-                  <Card.Text className="text-muted">
+                  <div className="feature-icon" style={{fontSize: '4rem', marginBottom: '1.5rem', marginTop: '1.5rem'}}>✅</div>
+                  <Card.Title className="h4 mb-3" style={{fontWeight: '700', color: '#1f2937'}}>Get Work Done</Card.Title>
+                  <Card.Text className="text-muted mb-4" style={{fontSize: '0.95rem', lineHeight: '1.6'}}>
                     Professional workers complete your job to satisfaction. 
                     Rate their service and help others make informed decisions.
                   </Card.Text>
@@ -397,21 +397,22 @@ const Home = () => {
         
         .feature-step {
           position: absolute;
-          top: -15px;
+          top: -20px;
           left: 50%;
           transform: translateX(-50%);
-          width: 40px;
-          height: 40px;
-          background: var(--gradient-primary);
+          width: 50px;
+          height: 50px;
+          background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
           border-radius: 50%;
           display: flex;
           align-items: center;
           justify-content: center;
           color: white;
-          font-weight: 700;
-          font-size: 1.1rem;
-          box-shadow: var(--shadow-lg);
+          font-weight: 800;
+          font-size: 1.2rem;
+          box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
           z-index: 10;
+          border: 3px solid white;
         }
         
         .feature-tags {
@@ -423,13 +424,22 @@ const Home = () => {
         }
         
         .feature-tag {
-          background: var(--primary-100);
-          color: var(--primary-700);
-          padding: 0.25rem 0.75rem;
-          border-radius: var(--radius-full);
-          font-size: 0.75rem;
-          font-weight: 600;
+          background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+          color: #1d4ed8;
+          padding: 0.4rem 1rem;
+          border-radius: 20px;
+          font-size: 0.8rem;
+          font-weight: 700;
           letter-spacing: 0.025em;
+          border: 1px solid rgba(59, 130, 246, 0.2);
+          text-transform: uppercase;
+          box-shadow: 0 2px 8px rgba(59, 130, 246, 0.1);
+          transition: all 0.3s ease;
+        }
+        
+        .feature-tag:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
         }
         
         .service-badge {
@@ -529,9 +539,10 @@ const Home = () => {
           }
           
           .feature-step {
-            width: 35px;
-            height: 35px;
-            font-size: 1rem;
+            width: 45px;
+            height: 45px;
+            font-size: 1.1rem;
+            top: -15px;
           }
           
           .cta-stat-number {
