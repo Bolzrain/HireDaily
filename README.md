@@ -378,36 +378,19 @@ We welcome contributions! Please follow these steps:
 - Update documentation as needed
 - Ensure all tests pass before submitting PR
 
-## 📸 Screenshots
-
-> Add screenshots of your application here to showcase the UI/UX
-
 ## 🆘 Support
 
-- 📧 **Email**: support@hiredaily.com
-- 💬 **Discord**: [Join our community](https://discord.gg/hiredaily)
-- 📋 **Issues**: [GitHub Issues](https://github.com/yourusername/hiredaily/issues)
+- 📧 **Email**: sudipta8534@gmail.com
 
 ## 📄 License
 
 This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
 
-## 👏 Acknowledgments
-
-- **React Team** for the amazing framework
-- **MongoDB** for the robust database solution
-- **Bootstrap** for the beautiful UI components
-- **Stripe** for secure payment processing
-- **All Contributors** who helped build this platform
-
----
 
 <div align="center">
 
 **⭐ Star this repository if you find it helpful!**
 
-Made with ❤️ by the HireDaily Team
-
-[🌐 Website](https://hiredaily.com) • [📧 Contact](mailto:contact@hiredaily.com) • [🐦 Twitter](https://twitter.com/hiredaily)
+Made by Sudipta Sahu
 
 </div>
