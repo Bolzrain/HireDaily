@@ -1,3 +1,4 @@
+
 # 🏗️ HireDaily - Worker Hiring Platform
 
 > **A modern full-stack MERN application that seamlessly connects customers with skilled service workers for various jobs including construction, electrical work, plumbing, carpentry, gardening, and more.**
@@ -409,4 +410,4 @@ Made with ❤️ by the HireDaily Team
 
 [🌐 Website](https://hiredaily.com) • [📧 Contact](mailto:contact@hiredaily.com) • [🐦 Twitter](https://twitter.com/hiredaily)
 
-</div> 
+</div>
