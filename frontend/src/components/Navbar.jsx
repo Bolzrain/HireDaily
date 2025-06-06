@@ -20,7 +20,7 @@ const Navbar = () => {
       <Container>
         <BootstrapNavbar.Brand as={Link} to="/" className="modern-brand">
           <img 
-            src="/favicon.png" 
+            src="/Logo.png" 
             alt="HireDaily Logo" 
             className="brand-icon-img"
           />
